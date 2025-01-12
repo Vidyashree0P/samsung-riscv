@@ -9,7 +9,7 @@ College: Vidyavardhaka College of Engineering
 
 Email ID: vidyaachar35@gmail.com
 
-GitHub Profile: 
+GitHub Profile: [Vidyashree0P](https://github.com/Vidyashree0P)
 
 LinkedIN Profile: https://www.linkedin.com/in/vidya-shree-p-87ba6425a
 
