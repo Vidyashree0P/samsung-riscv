@@ -1,10 +1,23 @@
 # samsung-riscv
 The program focuses on the RISC-V architecture and leverages open-source tools to educate participants about VLSI chip design and RISC-V. The internship is led by Kunal Ghosh Sir.
-# installation of virtualbox to windows
-![installation](https://github.com/user-attachments/assets/aa383b29-34ec-4b4e-b630-6c34f93cd1b6)
+               
+# Basic Details
 
+Name: Vidyashree P
 
-# Task 1: Task is to refer to C based and RISCV based lab videos and execute the task of compiling the C code using gcc and riscv compiler
+College: Vidyavardhaka College of Engineering
+
+Email ID: vidyaachar35@gmail.com
+
+GitHub Profile: 
+
+LinkedIN Profile: 
+
+----------------------------------------------------------------------------------------------------------------
+
+<details>
+ <summary><b>  
+Task 1:</b> Task is to refer to C based and RISCV based lab videos and execute the task of compiling the C code using gcc and riscv compiler</summary>
 
 ## C Language based LAB
 ## C and RISC-V Based Labs
@@ -37,7 +50,7 @@ This repository demonstrates the processes involved in compiling C programs and 
 ### RISC-V Based Lab
 
 #### Steps to Compile Using RISC-V GCC Compiler:
-// Ensure the RISC-V GCC compiler is installed and accessible on your system.
+// Ensure the RISC-V GCC compiler is installed and accessible on your system. 
 // Verify the .c file contents using the cat command:
    ```sh
    cat sum1ton.c
@@ -77,7 +90,78 @@ follow the steps as prevoious
 
 
 ### Explanation of Key Commands and Options: 
-1. -O1: Enables basic optimization for better performance without significantly increasing compilation time.
+1. -mabi=lp64: Specifies the Application Binary Interface (ABI) for 64-bit integers, pointers, and long data types, suitable for 64-bit RISC-V architecture.
 
-2. -Ofast: Optimize the code aggressively for the best possible speed.
+2. -march=rv64i: Indicates the 64-bit RISC-V base integer instruction set architecture.
+
+3. -O1: Enables basic optimization for better performance without significantly increasing compilation time.
+
+4. -Ofast: Optimize the code aggressively for the best possible speed.
+
+5. riscv64-unknown-elf-objdump: A tool for disassembling RISC-V binaries to examine the code structure and debug it effectively.
+   
+</details>
+
+----------------------------------------------------------------------------------------------------------------
+
+<details>
+<summary><b>Task2</b>:SPIKE Simulation and Compile the C program using RISC-V GCC/SPIKE with the above optimization options.  </summary>
+
+# SPIKE SIMULATION
+![spike(factn)](https://github.com/user-attachments/assets/19dae9c1-7e5a-4911-bce8-2c01c19cf2b3)
+
+## Steps to Compile and run ./a.out thing in riscv
+```sh
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+```
+```sh
+spike pk sum1ton.c
+```
+## Steps to Debug RISC-V architecture
+```sh
+spike -d pk sum1ton.c
+```
+//debuger will open as shown above 
+
+//Run untill the starting address of main using the command
+```sh
+untill pc 0 100b0
+//previous value of register
+reg 0 a2
+//do enter and after the update value of a2 is
+reg 0 a2
+```
+// addi sp,sp,-16 means the address of sp is subtracted by 16 to check that
+```sh
+until pc 0 100b8
+reg 0 sp
+q//to quit
+```
+
+
+### The values store in the 64 bits as shown below for the command "lui a2, 0x376"
+![WhatsApp Image 2025-01-12 at 23 01 01_08654899](https://github.com/user-attachments/assets/15ceeffb-e9f9-45c9-874c-455d212d01ec)
+
+### Explanation of Key Commands and Options:
+1. addi = add immediately
+2. lui = load upper limited
+
+<details>
+<summary><b>Compile the C program using RISC-V GCC/SPIKE with the above optimization options.</b></summary>
+
+## C compilation of Factorial of N numbers
+![factn c](https://github.com/user-attachments/assets/2548dc42-a9ff-4c54-8233-a2870c4d1a2f)
+
+## riscv compilation of factorial of N numbers
+![riscv(factn)](https://github.com/user-attachments/assets/d9402407-e666-4008-920d-7d25acc906e7)
+
+//Compile the C program for RISC-V architecture using ofast option:
+![ofast(factn)](https://github.com/user-attachments/assets/6ceaedd0-dd52-42cb-b707-7bed5298d11a)
+
+## Spike Simulation
+![spike(factn)](https://github.com/user-attachments/assets/0eb8bc44-7034-466b-aa79-14395af7b2f6)
+
+</details>
+
+----------------------------------------------------------------------------------------------------------------
 
