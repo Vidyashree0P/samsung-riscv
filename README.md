@@ -11,7 +11,7 @@ Email ID: vidyaachar35@gmail.com
 
 GitHub Profile: 
 
-LinkedIN Profile: 
+LinkedIN Profile: https://www.linkedin.com/in/vidya-shree-p-87ba6425a
 
 ----------------------------------------------------------------------------------------------------------------
 
