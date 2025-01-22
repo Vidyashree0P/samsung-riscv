@@ -177,13 +177,13 @@ Task 3: undestanding the R,I,S,B,U and J Instructions
    the R-type instruction format for the riscv64 (64-bit RISC-V architecture):
 
    ## R-type Instruction Format
-      The R-type instruction format follows a specific structure consisting of six fields:
-      opcode (7 bits): Specifies the operation to be performed.
-      rd (5 bits): The destination register where the result of the operation will be stored.
-      funct3 (3 bits): Used in combination with the opcode and funct7 fields to define the exact operation.
-      rs1 (5 bits): The first source register operand.
-      rs2 (5 bits): The second source register operand.
-      funct7 (7 bits): Further refines the operation, often used to differentiate between variations of an operation.
+ The R-type instruction format follows a specific structure consisting of six fields:
+1. opcode (7 bits): Specifies the operation to be performed.
+2. rd (5 bits): The destination register where the result of the operation will be stored.
+3 funct3 (3 bits): Used in combination with the opcode and funct7 fields to define the exact operation.
+4. rs1 (5 bits): The first source register operand.
+5. rs2 (5 bits): The second source register operand.
+6. funct7 (7 bits): Further refines the operation, often used to differentiate between variations of an operation.
 
   ### Structure
   ```sh
@@ -193,17 +193,22 @@ Task 3: undestanding the R,I,S,B,U and J Instructions
 ### Example (ADD Instruction)
     add x5, x1, x2
 ### Instruction Breakdown
-    opcode (7 bits): 0110011 – Identifies the instruction as an R-type.
-    rd (5 bits): 00101 – Destination register x5 (in binary, register 5 is 00101).
-    funct3 (3 bits): 000 – Specifies the add operation.
-    rs1 (5 bits): 00001 – Source register x1 (in binary, register 1 is 00001).
-    rs2 (5 bits): 00010 – Source register x2 (in binary, register 2 is 00010).
-    funct7 (7 bits): 0000000 – Defines the basic add operation.
+opcode (7 bits): 0110011 – Identifies the instruction as an R-type.
+
+rd (5 bits): 00101 – Destination register x5 (in binary, register 5 is 00101).
+
+funct3 (3 bits): 000 – Specifies the add operation.
+
+rs1 (5 bits): 00001 – Source register x1 (in binary, register 1 is 00001).
+
+rs2 (5 bits): 00010 – Source register x2 (in binary, register 2 is 00010).
+
+funct7 (7 bits): 0000000 – Defines the basic add operation.
 #### Detailed Bit Representation
 Here's how each part fits into the 32-bit instruction format:
-    ```sh 
+```sh    
 | 31:25 (funct7) | 24:20 (rs2) | 19:15 (rs1) | 14:12 (funct3) | 11:7 (rd) |  6:0  (opcode) |
 | 0000000        | 00010       | 00001       | 000            | 00101    | 0110011       |
 // The hex representation of this add x5, x1, x2 instruction is
 0x002080b3
-    ```
+```
