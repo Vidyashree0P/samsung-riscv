@@ -170,4 +170,40 @@ q//to quit
 </details>
 
 ----------------------------------------------------------------------------------------------------------------
+Task 3: undestanding the R,I,S,B,U and J Instructions
 
+# 1. R-type Instructions
+   In the RISC-V architecture, the R-type (Register) instruction format is used for arithmetic and logical operations that involve registers. Let's break down 
+   the R-type instruction format for the riscv64 (64-bit RISC-V architecture):
+
+   ## R-type Instruction Format
+      The R-type instruction format follows a specific structure consisting of six fields:
+      opcode (7 bits): Specifies the operation to be performed.
+      rd (5 bits): The destination register where the result of the operation will be stored.
+      funct3 (3 bits): Used in combination with the opcode and funct7 fields to define the exact operation.
+      rs1 (5 bits): The first source register operand.
+      rs2 (5 bits): The second source register operand.
+      funct7 (7 bits): Further refines the operation, often used to differentiate between variations of an operation.
+
+  ### Structure
+  ```sh
+| funct7  | rs2  | rs1  | funct3 | rd   | opcode |
+| 7 bits  | 5 bits | 5 bits | 3 bits | 5 bits | 7 bits |
+```
+### Example (ADD Instruction)
+    add x5, x1, x2
+### Instruction Breakdown
+    opcode (7 bits): 0110011 – Identifies the instruction as an R-type.
+    rd (5 bits): 00101 – Destination register x5 (in binary, register 5 is 00101).
+    funct3 (3 bits): 000 – Specifies the add operation.
+    rs1 (5 bits): 00001 – Source register x1 (in binary, register 1 is 00001).
+    rs2 (5 bits): 00010 – Source register x2 (in binary, register 2 is 00010).
+    funct7 (7 bits): 0000000 – Defines the basic add operation.
+#### Detailed Bit Representation
+Here's how each part fits into the 32-bit instruction format:
+    ```sh 
+| 31:25 (funct7) | 24:20 (rs2) | 19:15 (rs1) | 14:12 (funct3) | 11:7 (rd) |  6:0  (opcode) |
+| 0000000        | 00010       | 00001       | 000            | 00101    | 0110011       |
+// The hex representation of this add x5, x1, x2 instruction is
+0x002080b3
+    ```
