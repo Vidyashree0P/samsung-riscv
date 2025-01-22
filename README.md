@@ -174,7 +174,8 @@ q//to quit
 <details><summary><b>
 Task 3: </b>undestanding the R,I,S,B,U and J Instructions</summary>
 <details>
-<summary><b> 1. R-type Instructions</b>
+  
+<summary><b>R-type Instructions</b>
   In the RISC-V architecture, the R-type (Register) instruction format is used for arithmetic and logical operations that involve registers.</summary> 
   
   Let's break down the R-type instruction format for the riscv64 (64-bit RISC-V architecture):
@@ -217,7 +218,7 @@ Here's how each part fits into the 32-bit instruction format:
 ```
 </details>
 
-<details><summary><b>2. I-type Instruction</b>
+<details><summary><b>I-type Instruction</b>
 In the RISC-V architecture, the I-type (Immediate) instruction format is used for operations involving immediate values (constants) along with registers. This format is often used for load instructions, arithmetic operations with immediate values, and other instructions that require a constant operand.</summary>
 
 ## I-type Instruction Format
@@ -315,7 +316,62 @@ imm[11:5] (7 bits): 0000000 – The most significant 7 bits of the immediate val
 ```
 </details>
 
+<details><summary><b>B-Type Instructions:</b> B-type (Branch) instructions in the RISC-V architecture are used for conditional branching. These instructions compare two registers and, based on the result, adjust the program counter to branch to a different part of the program.</summary>
 
+## B-type Instruction Format
+The B-type format consists of six key fields:
+
+opcode (7 bits): Specifies the operation.
+
+imm[12|10:5] (7 bits): Immediate value (most and middle significant bits).
+
+rs1 (5 bits): First source register.
+
+rs2 (5 bits): Second source register.
+
+funct3 (3 bits): Specifies the exact branch condition.
+   
+imm[4:1|11] (5 bits): Immediate value (least significant and sign bit).
+
+#### Structure
+```sh
+| imm[12] | imm[10:5] | rs2    | rs1    | funct3 | imm[4:1] | imm[11] | opcode  |
+|---------|-----------|--------|--------|--------|----------|---------|---------|
+| 1 bit   | 6 bits    | 5 bits | 5 bits | 3 bits | 4 bits   | 1 bit   | 7 bits  |
+
+```
+
+#### Example (BEQ Instruction)
+Let's consider the beq (branch if equal) instruction:
+##### beq x1, x2, label
+This instructs the program to branch to a specific label if the values in registers x1 and x2 are equal.
+#### Breaking Down the Example:
+ opcode (7 bits): 1100011 – Indicates a B-type branch instruction.
+
+imm[12] (1 bit): Most significant bit of the immediate offset.
+
+imm[10:5] (6 bits): Next part of the immediate.
+
+funct3 (3 bits): 000 – Specifies the branch if equal condition.
+
+rs1 (5 bits): 00001 – The first source register x1.
+
+rs2 (5 bits): 00010 – The second source register x2.
+
+imm[4:1] (4 bits): Least significant bits of the immediate.
+
+imm[11] (1 bit): Sign bit of the immediate.
+
+##### Detailed Bit Representation
+```sh
+| 31 (imm[12]) | 30:25 (imm[10:5])    | 24:20 (rs2) | 19:15 (rs1) | 14:12 (funct3) | 11:8 (imm[4:1]) | 7 (imm[11]) | 6:0 (opcode) |
+| 0            | 000000               | 00010       | 00001       | 000            | 0010            | 0           | 1100011      |
+//hex representation
+0x00410263
+
+```
+
+</details>
 
 
 </details>
