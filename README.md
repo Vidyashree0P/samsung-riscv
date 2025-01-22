@@ -499,5 +499,39 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
 
 </details>
 
+#  32-bit instruction code for 15 unique RISC-V instructions. 
+
+<table>
+<tr><th> Address </th><th>Instructions</th><th>type</th><th>binary representation</th></tr>
+<tr><td> 10184 </td><td> addi sp, sp, -32 </td><td> I-type </td><td> 1111 1110 0000 0001 0000 0001 0001 0011</td></tr>
+<tr><td> 10188 </td><td> sd ra, 24(sp) </td><td> S-type </td><td> 0000 0000 0001 0001 0011 1100 0010 0011
+ </td></tr>
+<tr><td> 1018C </td><td> sd s0, 16(sp) </td><td> S-type </td><td> 0000 0000 1000 0001 0011 1000 0010 0011
+ </td></tr>
+<tr><td> 10190 </td><td> sd s1, 8(sp) </td><td> S-type </td><td> 0000 0000 1001 0001 0011 0100 0010 0011
+ </td></tr>
+<tr><td> 10194 </td><td> li a1, 1 </td><td> I-type </td><td> 0000 0000 0001 0000 0000 0101 1001 0011
+ </td></tr>
+<tr><td> 10198 </td><td> li s0, 1 </td><td> I-type </td><td> 0000 0000 0001 0000 0000 0100 0001 0011
+ </td></tr>
+<tr><td> 1019C </td><td> li s1, 11 </td><td> I-type </td><td> 0000 0000 1011 0000 0000 0100 1001 0011 </td></tr>
+<tr><td> 101A0 </td><td> mv a0, s0 </td><td> R-type </td><td> 0000 0000 0000 0100 0000 0101 0001 0011
+ </td></tr>
+<tr><td> 101A4 </td><td> jal ra, 101e0 </td><td> J-type </td><td> 0000 0011 1100 0000 0000 0000 1110 1111
+ </td></tr>
+<tr><td> 101A8 </td><td> sext.w a1, a0 </td><td> R-type </td><td> 0000 0000 0000 0101 0000 0101 1001 1011
+ </td></tr>
+<tr><td> 101AC </td><td> addiw s0, s0, 1 </td><td> I-type </td><td> 0000 0000 0001 0100 0000 0100 0001 1011
+ </td></tr>
+<tr><td> 101B0 </td><td>  bne s0, s1, 101a0	</td><td> B-type </td><td> 1111 1110 1001 0100 0001 1000 1110 0011
+ </td></tr>
+<tr><td> 101B4 </td><td> mv a2, a1 </td><td> R-type </td><td> 0000 0000 0000 0101 1000 0110 0001 0011
+ </td></tr>
+<tr><td> 101B8 </td><td> li a1, 10 </td><td> I-type </td><td> 0000 0000 1010 0000 0000 0101 1001 0011
+ </td></tr>
+<tr><td> 101BC </td><td> lui a0, 0x21 </td><td> U-type </td><td> 0000 0000 0000 0010 0001 0101 0011 0111
+ </td></tr>
+<tr><td> 101C0 </td><td> addi a0, a0, 432 </td><td> I-type </td><td> 0001 1011 0000 0101 0000 0101 0001 0011 </td></tr>
+</table>
 
 </details>
