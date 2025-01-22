@@ -173,8 +173,45 @@ q//to quit
 ----------------------------------------------------------------------------------------------------------------
 <details><summary><b>
 Task 3: </b>undestanding the R,I,S,B,U and J Instructions</summary>
+
+
+  # Introduction to Instruction of RISC-V64
+In the realm of computer architecture, RISC-V stands out as a highly flexible and streamlined instruction set architecture (ISA). Within the RISC-V RV64G (64-bit) architecture, various instruction types have been ingeniously designed to optimize different computational tasks. These instruction types—including R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type—each serve unique functions, from arithmetic and logical operations to memory storage and conditional branching. Understanding these instructions provides a key to unleashing the full potential of RISC-V’s modular and efficient architecture.
+
+## Types of RISC-V Instructions
+**1. R-Type Instructions:** These are Register-Register operations. They perform arithmetic and logical operations.
+
+**2. I-Type Instructions:** Used for Immediate values typically in data transfer and arithmetic
+
+**3. S-Type Instructions:** Store operations that utilize both a base register and an immediate offset.
+
+**4. U-Type Instructions:** Used for Upper immediate instructions, which load large constants.
+
+**5. B-Type Instructions:** Branch operations that allow conditional jumps.
+
+**6. J-Type Instructions:** Jump instructions for long-range jumps.
+
+```sh
+//R-Type Instructions
+opcode | rd | funct3 | rs1 | rs2 | funct7
+
+//I-Type Instructions
+opcode | rd | funct3 | rs1 | imm[11:0]
+
+//S-Type Instructions
+opcode | imm[11:5] | funct3 | rs1 | rs2 | imm[4:0]
+
+//U-Type Instructions
+opcode | rd | imm[31:12]
+
+//B-Type Instructions
+opcode | imm[12|10:5] | funct3 | rs1 | rs2 | imm[4:1|11]
+
+//J-Type Instructions
+opcode | rd | imm[20|10:1|11|19:12]
+```
+
 <details>
-  
 <summary><b>R-type Instructions</b>
   In the RISC-V architecture, the R-type (Register) instruction format is used for arithmetic and logical operations that involve registers.</summary> 
   
