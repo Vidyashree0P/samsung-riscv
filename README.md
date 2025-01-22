@@ -376,8 +376,8 @@ imm[11] (1 bit): Sign bit of the immediate.
 
   ## Important U-Type Instructions in RISC-V:
   ##### 1. LUI (Load Upper Immediate):
-           This instruction loads the 20-bit immediate value given in the instruction into the top 20 bits of a register. The lower 12 bits 
-   are set to zero.
+  This instruction loads the 20-bit immediate value given in the instruction into the top 20 bits of a register. The lower 12 bits 
+  are set to zero.
    
 ##### Format:
 
@@ -405,7 +405,7 @@ Immediate Value: The immediate value provided in the instruction is 0x12345.
 Destination Register: The register to be loaded with the immediate value here is x5
 
 ##### 2.AUIPC (Add Upper Immediate to PC): 
-        This adds the 20-bit immediate value to the program counter and places the result in a register. Essentially, this helps in generating PC-relative addresses.
+This adds the 20-bit immediate value to the program counter and places the result in a register. Essentially, this helps in generating PC-relative addresses.
 ##### Format:
 ```sh
 31-12                   |	11-7	                      | 6-0
@@ -434,7 +434,7 @@ rd: The destination register where the return address will be stored.
 
 imm: Immediate value representing the offset to jump to, with the final address being the PC plus this offset.
 ##### Example JAL x1, 2048
-    This instruction makes the processor jump to the PC plus the offset 2048 bytes and stores the return address (i.e., the address of the next instruction) in the register x1.
+This instruction makes the processor jump to the PC plus the offset 2048 bytes and stores the return address (i.e., the address of the next instruction) in the register x1.
 
 ##### Breaking it Down:
 
@@ -451,4 +451,6 @@ imm[19:12] bits are at positions 19-12.
 These fields are extracted and combined to form a 21-bit signed immediate value, which is then shifted left by one bit to align with even byte boundaries (since instruction addresses are word-aligned).
 
 </details>
+
+
 </details>
