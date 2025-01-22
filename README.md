@@ -168,13 +168,16 @@ q//to quit
 ![spike(factn)](https://github.com/user-attachments/assets/0eb8bc44-7034-466b-aa79-14395af7b2f6)
 
 </details>
+</details>
 
 ----------------------------------------------------------------------------------------------------------------
-Task 3: undestanding the R,I,S,B,U and J Instructions
-
-# 1. R-type Instructions
-   In the RISC-V architecture, the R-type (Register) instruction format is used for arithmetic and logical operations that involve registers. Let's break down 
-   the R-type instruction format for the riscv64 (64-bit RISC-V architecture):
+<details><summary><b>
+Task 3: </b>undestanding the R,I,S,B,U and J Instructions</summary>
+<details>
+<summary><b> 1. R-type Instructions</b>
+  In the RISC-V architecture, the R-type (Register) instruction format is used for arithmetic and logical operations that involve registers.</summary> 
+  
+  Let's break down the R-type instruction format for the riscv64 (64-bit RISC-V architecture):
 
    ## R-type Instruction Format
  The R-type instruction format follows a specific structure consisting of six fields:
@@ -212,3 +215,107 @@ Here's how each part fits into the 32-bit instruction format:
 // The hex representation of this add x5, x1, x2 instruction is
 0x002080b3
 ```
+</details>
+
+<details><summary><b>2. I-type Instruction</b>
+In the RISC-V architecture, the I-type (Immediate) instruction format is used for operations involving immediate values (constants) along with registers. This format is often used for load instructions, arithmetic operations with immediate values, and other instructions that require a constant operand.</summary>
+
+## I-type Instruction Format
+Similar to the R-type, the I-type format consists of six fields, structured slightly differently to accommodate the immediate value:
+
+opcode (7 bits): Specifies the operation to be performed.
+
+rd (5 bits): The destination register where the result of the operation will be stored.
+
+funct3 (3 bits): Used in combination with the opcode to define the exact operation.
+
+rs1 (5 bits): The source register operand.
+
+imm (12 bits): The immediate value (constant).
+
+### Structure
+Here's a breakdown of the bit fields:
+```sh
+| imm[11:0]     | rs1     | funct3 | rd      | opcode  |
+| 12 bits       | 5 bits  | 3 bits | 5 bits  | 7 bits  |
+
+```
+
+### Example (ADDI Instruction)
+For instance, an ADDI (add immediate) instruction in RISC-V might look like this:
+#### Instruction Breakdown
+opcode (7 bits): 0010011 – Identifies this as an I-type immediate instruction.
+
+rd (5 bits): 00101 – The destination register x5 (in binary, register 5 is 00101).
+
+funct3 (3 bits): 000 – Indicates add immediate operation.
+
+rs1 (5 bits): 00001 – The source register x1 (in binary, register 1 is 00001).
+
+imm (12 bits): 000000000010 – The immediate value 10 (in binary, 10 is 000000000010).
+#### Detailed Bit Representation
+```sh
+| 31:20 (imm[11:0]) | 19:15 (rs1) | 14:12 (funct3) | 11:7 (rd) | 6:0 (opcode) |
+| 000000000010      | 00001       | 000            | 00101    | 0010011      |
+// hex representation
+0x00208113
+```
+</details>
+
+<details><summary><b> S-Type Instruction</b>
+The S-type (Store) instruction format in the RISC-V architecture is used for store operations. These instructions move data from a register to memory, using an immediate value as an offset to calculate the address.</summary>
+  
+## S-type Instruction Format
+The S-type format consists of six fields:
+
+opcode (7 bits): Specifies the operation.
+
+imm[4:0] (5 bits): Immediate value (least significant 5 bits).
+
+funct3 (3 bits): Specifies the exact operation.
+
+rs1 (5 bits): Source register (base address).
+
+rs2 (5 bits): Source register (value to be stored).
+
+imm[11:5] (7 bits): Immediate value (most significant 7 bits).
+
+### Structure
+Here's the bit layout for an S-type instruction:
+```sh
+| imm[11:5] | rs2   | rs1   | funct3 | imm[4:0] | opcode  |
+| 7 bits    | 5 bits| 5 bits| 3 bits | 5 bits   | 7 bits  |
+```
+
+### Example (SW Instruction)
+the sw (store word) instruction in RISC-V
+sw x5, 10(x1)
+This command stores the value from register x5 into the memory address calculated by adding 10 (the immediate) to the base address in x1.
+
+#### Breaking Down the Example:
+
+opcode (7 bits): 0100011 – Indicates an S-type store instruction.
+
+imm[4:0] (5 bits): 01010 – The least significant 5 bits of the immediate value 10.
+
+funct3 (3 bits): 010 – Specifies the store word operation.
+
+rs1 (5 bits): 00001 – The base address register x1.
+
+rs2 (5 bits): 00101 – The source register x5.
+
+imm[11:5] (7 bits): 0000000 – The most significant 7 bits of the immediate value 10.
+
+#### Detailed Bit Representation
+```sh
+| 31:25 (imm[11:5]) | 24:20 (rs2) | 19:15 (rs1) | 14:12 (funct3) | 11:7 (imm[4:0]) | 6:0 (opcode) |
+| 0000000           | 00101       | 00001       | 010            | 01010           | 0100011      |
+// hex representation
+0x0050a023
+```
+</details>
+
+
+
+
+</details>
