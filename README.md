@@ -501,6 +501,8 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
 
 #  32-bit instruction code for 15 unique RISC-V instructions. 
 
+![WhatsApp Image 2025-01-22 at 23 46 08_2d5e79a7](https://github.com/user-attachments/assets/01136393-0bd0-4c88-aa25-4c49c164b267)
+
 <table>
 <tr><th> Address </th><th>Instructions</th><th>type</th><th>binary representation</th></tr>
 <tr><td> 10184 </td><td> addi sp, sp, -32 </td><td> I-type </td><td> 1111 1110 0000 0001 0000 0001 0001 0011</td></tr>
