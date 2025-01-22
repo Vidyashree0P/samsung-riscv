@@ -1,4 +1,4 @@
-# samsung-riscv
+# Samsung-RISCV
 The program focuses on the RISC-V architecture and leverages open-source tools to educate participants about VLSI chip design and RISC-V. The internship is led by Kunal Ghosh Sir.
                
 # Basic Details
@@ -372,6 +372,83 @@ imm[11] (1 bit): Sign bit of the immediate.
 ```
 
 </details>
+<details><summary><b> U-Type Instruction:</b>The U-type (Upper immediate) format is one of the instruction formats in the RISC-V architecture.</summary>
 
+  ## Important U-Type Instructions in RISC-V:
+  ##### 1. LUI (Load Upper Immediate):
+           This instruction loads the 20-bit immediate value given in the instruction into the top 20 bits of a register. The lower 12 bits 
+   are set to zero.
+   
+##### Format:
 
+```sh
+31-12	                | 11-7	                    | 6-0
+20-bit immediate value|	rd (destination register)	| opcode
+```
+Opcode: 0010111
+
+rd: The destination register to which the result of the addition will be stored.
+##### example LUI x5, 0x12345
+This instruction will load the immediate value 0x12345 into register x5. The lower 12 bits are set to zero, so effectively 0x12345 << 12 is loaded into x5.
+```sh
+31-12	                       | 11-7	                      | 6-0
+20-bit immediate value       |	rd (destination register)	| opcode
+000 0001 0010 0011 0100 0101 | 00101                      | 0110111JAL (Jump and Link) Instruction
+```
+
+##### Instruction Breakdown:
+
+Opcode: The LUI instruction has an opcode of 0110111 (binary) which is 0x37 (hexadecimal).
+
+Immediate Value: The immediate value provided in the instruction is 0x12345.
+
+Destination Register: The register to be loaded with the immediate value here is x5
+
+##### 2.AUIPC (Add Upper Immediate to PC): 
+        This adds the 20-bit immediate value to the program counter and places the result in a register. Essentially, this helps in generating PC-relative addresses.
+##### Format:
+```sh
+31-12                   |	11-7	                      | 6-0
+20-bit immediate value	| rd (destination register)	  |   opcode
+```
+Opcode: 0010111
+
+rd: The destination register to which the result of the addition will be stored.
+
+##### Example: AUIPC x5, 0x12345
+This instruction adds the immediate value 0x12345 << 12 to the current value of the PC (Program Counter) and stores the result in register x5. This is useful for generating PC-relative addresses.
+
+</details>
+<details>
+<summary><b> J-Type Instruction:</b> The J-type (Jump) format is another instruction format in the RISC-V architecture, and it’s used primarily for jump instructions that enable control flow changes.</summary>
+
+  ## JAL (Jump and Link) Instruction
+  ### Format:
+ ```sh
+  31	  | 30-21     |	20      |	19-12       |	11-7 |	6-0
+imm[20] |	imm[10:1]	|imm[11]	| imm[19:12]  |	rd	 |  opcode
+```
+Opcode: 1101111
+
+rd: The destination register where the return address will be stored.
+
+imm: Immediate value representing the offset to jump to, with the final address being the PC plus this offset.
+##### Example JAL x1, 2048
+    This instruction makes the processor jump to the PC plus the offset 2048 bytes and stores the return address (i.e., the address of the next instruction) in the register x1.
+
+##### Breaking it Down:
+
+Offset Calculation: The immediate value in J-type instructions is spread across multiple fields in the instruction encoding.
+
+imm[20] bit is at position 31.
+
+imm[10:1] bits are at positions 30-21.
+
+imm[11] bit is at position 20.
+
+imm[19:12] bits are at positions 19-12.
+
+These fields are extracted and combined to form a 21-bit signed immediate value, which is then shifted left by one bit to align with even byte boundaries (since instruction addresses are word-aligned).
+
+</details>
 </details>
