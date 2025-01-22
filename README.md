@@ -435,7 +435,17 @@ rd: The destination register where the return address will be stored.
 imm: Immediate value representing the offset to jump to, with the final address being the PC plus this offset.
 ##### Example JAL x1, 2048
 This instruction makes the processor jump to the PC plus the offset 2048 bytes and stores the return address (i.e., the address of the next instruction) in the register x1.
+ ```sh
+  31	     | 30-21      |	20       |	19-12        |	11-7  |	6-0
+imm[20]    |	imm[10:1]	| imm[11]	 | imm[19:12]    |	rd	  |  opcode
+0000000000 | 0          | 00000001 | 0             | 00001  |      1101111
 
+```
+Opcode (7 bits): 1101111
+
+Destination Register (5 bits): 00001
+
+Immediate/Target Address (20 bits): 2048 in binary is 00000001000000000000.
 ##### Breaking it Down:
 
 Offset Calculation: The immediate value in J-type instructions is spread across multiple fields in the instruction encoding.
