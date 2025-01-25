@@ -574,8 +574,11 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
    ```
 ![IMG-20250125-WA0023](https://github.com/user-attachments/assets/defbce2c-f8b1-483d-a4b8-ab809619bc31)
 
-# The output waveform for the instructions
+# The output waveform :
+As shown in the figure below, all the instructions in the given verilog file is hard-coded. Hard-coded means that instead of following the RISCV specifications bit pattern, the designer has hard-coded each instructions based on their own pattern. 
+![Screenshot 2025-01-25 235439](https://github.com/user-attachments/assets/162ecf6a-86b8-4e7f-9a06-471be341934b)
 
+## Analysis of output waveforms
 **1. add r6,r1,r2**
   ![IMG-20250125-WA0022](https://github.com/user-attachments/assets/f8682a06-6156-4285-a0c1-ef90e3a700db)
 
@@ -609,6 +612,5 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
 
 **11.  add r14,r2,r2**
     ![IMG-20250125-WA0036](https://github.com/user-attachments/assets/d7d00e70-13c9-4d31-b820-f41bbb87d2dc)
-
 
 </details>
