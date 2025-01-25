@@ -174,6 +174,18 @@ q//to quit
 <details><summary><b>
 Task 3: </b>undestanding the R,I,S,B,U and J Instructions</summary>
 
+  # What is RISC-V? 
+  RISC-V (pronounced "risk-five") is an open standard instruction set architecture (ISA) that was created at the University of California, Berkeley, in 2010. Unlike proprietary ISAs, RISC-V is free and open, which means that anyone can use, modify, and implement it without paying royalties. This has led to its rapid adoption in both academic research and commercial applications. Here are a few key points about RISC-V:
+
+**Simplicity and Efficiency:** RISC-V is designed with a reduced instruction set computing (RISC) philosophy, which emphasizes simplicity and efficiency in hardware and software design.
+
+**Modularity:** RISC-V is highly modular, allowing designers to choose and customize the extensions they need. This flexibility makes it suitable for a wide range of applications, from microcontrollers to high-performance computing.
+
+**Growing Ecosystem:** There is a growing ecosystem around RISC-V, including hardware implementations, software development tools, and educational resources. This has been supported by organizations like the RISC-V Foundation, which promotes and supports the adoption of the architecture.
+
+**Industry Adoption:** Major tech companies, including NVIDIA, Western Digital, and Google, have shown interest in RISC-V and are incorporating it into their products.
+
+**Open Source:** Being open-source, RISC-V promotes innovation and collaboration in the hardware community, lowering barriers for entry and enabling a more inclusive technological landscape.
 
   # Introduction to Instruction of RISC-V64
 In the realm of computer architecture, RISC-V stands out as a highly flexible and streamlined instruction set architecture (ISA). Within the RISC-V RV64G (64-bit) architecture, various instruction types have been ingeniously designed to optimize different computational tasks. These instruction types—including R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type—each serve unique functions, from arithmetic and logical operations to memory storage and conditional branching. Understanding these instructions provides a key to unleashing the full potential of RISC-V’s modular and efficient architecture.
@@ -540,7 +552,8 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
 
 ----------------------------------------------------------------------------------------------------------------
 <details>
-  <summary><b>Task 4:</b> Functional Simulation of RISC-V Core</summary>
+  <summary><b>Task 4:</b>Perform a functional simulation of the given RISC-V Core Verilog netlist and 
+testbench. </summary>
   Functional simulation of RISC-V cores involves verifying that the core behaves correctly according to its design specifications. This process includes testing all possible instructions, ensuring compliance with the RISC-V instruction set architecture (ISA), and checking for any security vulnerabilities or malicious logic
 
   # About iverilog and gtkwave
