@@ -537,3 +537,40 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
 </table>
 
 </details>
+
+----------------------------------------------------------------------------------------------------------------
+<details>
+  <summary><b>Task 4:</b> Functional Simulation of RISC-V Core</summary>
+  Functional simulation of RISC-V cores involves verifying that the core behaves correctly according to its design specifications. This process includes testing all possible instructions, ensuring compliance with the RISC-V instruction set architecture (ISA), and checking for any security vulnerabilities or malicious logic
+
+  # About iverilog and gtkwave
+1. Icarus Verilog is an implementation of the Verilog hardware description language.
+2. GTKWave is a fully featured GTK+ v1. 2 based wave viewer for Unix and Win32 which reads Ver Structural Verilog Compiler generated AET files as well as standard Verilog VCD/EVCD files and allows their viewing.
+
+**Step 1: installation of iverilog and gtkwave**
+   using the below commands in ubuntu
+   ```sh
+   $   sudo apt get update
+   $   sudo apt get install iverilog gtkwave
+   ```
+
+
+  **Step 2: clone the repository and download the netlist files for simulation by entering the following commands in terminal.**
+  ```sh
+   $ git clone https://github.com/vinayrayapati/iiitb_rv32i
+   $ cd iiitb_rv32i
+   $ gedit iiitb_rv32i.v
+   $ gedit iiitb_rv32i_tb.v
+   ```
+ **Step 3: To simulate and run the verilog code , enter the following commands in your terminal.**
+  ```sh
+ $ iverilog -o iiitb_rv32i iiitb_rv32i.v iiitb_rv32i_tb.v
+ $ ./iiitb_rv32i
+   ```
+**Step 4:To see the output waveform in gtkwave, enter the following commands in your terminal.**
+ ```sh
+ $ gtkwave iiitb_rv32i.vcd
+   ```
+
+
+</details>
