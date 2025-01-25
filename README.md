@@ -592,6 +592,16 @@ As shown in the figure below, all the instructions in the given verilog file is 
 ![Screenshot 2025-01-25 235439](https://github.com/user-attachments/assets/162ecf6a-86b8-4e7f-9a06-471be341934b)
 
 ## Analysis of output waveforms
+The waveform includes the following key signals:
+
+clk: The clock signal driving the design.
+
+NPC [31:0]: The next program counter value.
+
+WB_OUT [31:0]: The write-back output signal.
+
+RN: A register or control signal (usage depends on your design).
+
 **1. add r6,r1,r2**
   ![IMG-20250125-WA0022](https://github.com/user-attachments/assets/f8682a06-6156-4285-a0c1-ef90e3a700db)
 
