@@ -553,6 +553,7 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
    $   sudo apt get update
    $   sudo apt get install iverilog gtkwave
    ```
+![WhatsApp Image 2025-01-25 at 23 33 00_c7f9fab2](https://github.com/user-attachments/assets/8f64cc8a-8a2a-4fb9-bc3c-50e5b93adc48)
 
 
   **Step 2: clone the repository and download the netlist files for simulation by entering the following commands in terminal.**
@@ -571,6 +572,43 @@ These fields are extracted and combined to form a 21-bit signed immediate value,
  ```sh
  $ gtkwave iiitb_rv32i.vcd
    ```
+![IMG-20250125-WA0023](https://github.com/user-attachments/assets/defbce2c-f8b1-483d-a4b8-ab809619bc31)
+
+# The output waveform for the instructions
+
+**1. add r6,r1,r2**
+  ![IMG-20250125-WA0022](https://github.com/user-attachments/assets/f8682a06-6156-4285-a0c1-ef90e3a700db)
+
+
+**2. sub r7,r1,r2**
+    ![IMG-20250125-WA0028](https://github.com/user-attachments/assets/af07ba30-429c-4d53-8053-0b9a082a491a)
+
+**3. and r8,r1,r3**
+   ![IMG-20250125-WA0029](https://github.com/user-attachments/assets/b0b3e007-9e69-49ca-b8b8-56e514757c28)
+
+**4. or r9,r2,r5**
+   ![IMG-20250125-WA0030](https://github.com/user-attachments/assets/631fc2a4-b4fa-4cdd-a65f-4a21cb6dba63)
+
+**5. xor r10,r1,r4**
+  ![IMG-20250125-WA0031](https://github.com/user-attachments/assets/a239fecf-b113-4b1c-9fa3-c28a18cb3ee4)
+
+**6. slt r11,r2,r4**
+   ![IMG-20250125-WA0033](https://github.com/user-attachments/assets/3c3dafc3-e45c-496a-9c1d-81e261d93d66)
+
+**7. addi r12,r4,5**
+![IMG-20250125-WA0032](https://github.com/user-attachments/assets/ab29bb20-8b41-48c8-a13f-e0a34627b43e)
+
+**8. sw r3,r1,2**
+  ![IMG-20250125-WA0037](https://github.com/user-attachments/assets/00d16135-2877-48e3-b073-bf0ab8456033)
+
+**9.  lw r13,r1,2**
+    ![IMG-20250125-WA0035](https://github.com/user-attachments/assets/dbabb3e0-bccc-4946-b734-579782a3be13)
+
+**10.  beq r0,r0,15**
+   ![IMG-20250125-WA0035](https://github.com/user-attachments/assets/fef71909-bfc4-40b3-a4b6-18384d99f734)
+
+**11.  add r14,r2,r2**
+    ![IMG-20250125-WA0036](https://github.com/user-attachments/assets/d7d00e70-13c9-4d31-b820-f41bbb87d2dc)
 
 
 </details>
