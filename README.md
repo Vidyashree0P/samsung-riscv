@@ -637,3 +637,210 @@ RN: A register or control signal (usage depends on your design).
     ![IMG-20250125-WA0036](https://github.com/user-attachments/assets/d7d00e70-13c9-4d31-b820-f41bbb87d2dc)
 
 </details>
+
+----------------------------------------------------------------------------------------------------------------
+<details>
+<summary><b>Task 5:</b>Full adders are essential in digital systems as they serve as fundamental building blocks for creating more complex arithmetic circuits, such as multi-bit binary adders used in CPUs and ALUs for performing arithmetic operations. They are also crucial in digital multipliers, binary counters, digital signal processors (DSPs), and memory address calculations. Their versatile applications make full adders indispensable in modern electronic devices, ensuring precise and efficient arithmetic computations.</summary> 
+  
+
+# Full Adder implementation using VSDSquadron Mini RISC-V Board
+
+### Project Overview
+A **Full Adder** is a digital circuit designed to compute the sum of three binary digits: two significant bits (A and B) and a carry-in bit (Cin). It outputs a sum bit (S) and a carry-out bit (Cout).
+
+#### Features
+**Logical Operations:** Utilizes XOR gates for the sum and AND/OR gates for the carry.
+
+**Cascadability:** Multiple full adders can be connected to form multi-bit adders.
+
+**Versatility:** Widely used in arithmetic circuits, such as CPUs, ALUs, and digital multipliers.
+
+**Efficiency:** Enables precise and efficient arithmetic computations in digital systems.
+
+### Required Components
+<table>
+<tr><th>Component</th><th>quantity</th><th>Description</th></tr>
+ <tr><td>VSDSquadron Mini Board</td><td>1</td><td>RISC-V SoC-based development board</td></tr>
+  <tr><td>LEDs</td><td>2</td><td>Indicates Truth table</td></tr>
+  <tr><td>Breadboard</td><td>1</td><td>For circuit connections</td></tr>
+ <tr><td>USB Cable</td><td>1</td><td>Power and programming</td></tr>
+  <tr><td>Jumper Wires</td><td>-</td><td>Jumper Wires</td></tr>
+  <tr><td>Push Buttons</td><td>3</td><td>For input</td></tr>
+
+</table>
+
+
+### Pin Connections
+<table>
+<tr><th>Component</th><th>Board Pin</th><th>Purpose</th></tr>
+ <tr><td>led1</td><td>PC4</td><td>represent output</td></tr>
+  <tr><td>led2</td><td>PC5</td><td>represent output</td></tr>
+  <tr><td>push button 1</td><td>PC1</td><td>represent input</td></tr>
+<tr><td>push button 2</td><td>PC2</td><td>represent input</td></tr>
+  <tr><td>push button 3</td><td>PC3</td><td>represent input</td></tr>
+
+
+</table>
+
+### PIN DIAGRAM 
+![Screenshot 2025-02-17 224700](https://github.com/user-attachments/assets/c0704f41-6357-46a5-9104-5fdd95e79ed2)
+
+### Working 
+**Input Bits:**  The full adder takes three binary inputs: A, B, and Cin (carry-in).
+
+**Sum Calculation:** The sum bit (S) is calculated using the XOR (exclusive OR) operation on the three input bits. The formula is:
+                  sum= A⊕B⊕Cin
+The XOR operation produces a '1' if an odd number of input bits are '1', otherwise it produces a '0'.
+
+**Carry-Out Calculation:** The carry-out bit (Cout) is calculated using a combination of AND and OR gates. The formula is:
+        Cout=(A.B)+(B.Cin)+(A.Cin)
+The AND operations find the cases where any two of the input bits are '1', and the OR operation combines these cases to determine if a carry-out is needed.
+
+**Output:** The full adder outputs the sum bit (S) and the carry-out bit (Cout), which can be used as input to another full adder in a multi-bit adder setup.
+
+</details>
+
+----------------------------------------------------------------------------------------------------------------
+<details>
+<summary><b>Task 6: </b>A full adder is a digital circuit that computes the sum of three binary bits: two significant bits (A and B) and a carry-in bit (Cin). It produces a sum bit (S) and a carry-out bit (Cout). Full adders are essential components for building arithmetic circuits, such as multi-bit adders.</summary>
+
+## Project Implementation
+**Hardware Setup:** Connect three input push buttons to the GPIO pins of the VSDSquadron Mini for binary data input. Connect two LEDs to display the sum and carry-out outputs1.
+
+**Software Development:** Write the code to implement the full adder logic using digital gates (AND, OR, XOR) in the PlatformIO IDE. Configure the GPIO pins for input and output operations1.
+
+**Testing and Verification:** Use a truth table to verify the correct operation of the full adder circuit. The truth table for a full adder is as follows:
+<table>
+<tr><th>A</th><th>B</th><th>Cin</th><th>Sum</th><th>Cout</th></tr>
+  <tr><td>0</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td> </tr>
+  <tr><td>0</td> <td>0</td> <td>1</td> <td>1</td> <td>0</td> </tr>
+  <tr><td>0</td> <td>1</td> <td>0</td> <td>1</td> <td>0</td> </tr>
+  <tr><td>0</td> <td>1</td> <td>1</td> <td>0</td> <td>1</td> </tr>
+  <tr><td>1</td> <td>0</td> <td>0</td> <td>1</td> <td>0</td> </tr>
+  <tr><td>1</td> <td>0</td> <td>1</td> <td>0</td> <td>1</td> </tr>
+  <tr><td>1</td> <td>1</td> <td>0</td> <td>0</td> <td>1</td> </tr>
+  <tr><td>1</td> <td>1</td> <td>1</td> <td>1</td> <td>1</td> </tr>
+</table>
+
+**Execution:** Run the program on the VSDSquadron Mini and observe the LEDs displaying the sum and carry-out results based on the input combinations
+
+**This project demonstrates the practical application of digital logic and RISC-V architecture in executing arithmetic operations.**
+
+## Code Implementation
+ ```sh
+#include<stdio.h>
+#include<debug.h>
+#include<ch32v00x.h>
+
+// Defining the Logic Gate Function 
+int and(int bit1, int bit2)
+{
+    int out = bit1 & bit2;
+    return out;
+}
+int or(int bit1, int bit2)
+{
+    int out = bit1 | bit2;
+    return out;
+}
+int xor(int bit1, int bit2)
+{
+    int out = bit1 ^ bit2;
+    return out;
+}
+
+// Configuring GPIO Pins
+void GPIO_Config(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure = {0}; // structure variable used for GPIO configuration
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE); // to enable the clock for port D
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); // to enable the clock for port C
+    
+    // Input Pins Configuration
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defined as Input Type
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    //Output Pins Configuration
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; // Defined Output Type
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; // Defined Speed
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+}
+
+// The MAIN function responsible for the execution of program
+int main()
+{
+    uint8_t A, B, Cin, Sum, Carry; // Declared the required variables
+    uint8_t p, q, r, s, t; 
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+    SystemCoreClockUpdate();
+    Delay_Init();
+    GPIO_Config();
+
+    while(1)
+    {
+        A = GPIO_ReadInputDataBit(GPIOD, GPIO_Pin_1);
+        B = GPIO_ReadInputDataBit(GPIOD, GPIO_Pin_2);
+        Cin = GPIO_ReadInputDataBit(GPIOD, GPIO_Pin_3);
+        s = xor(A, B);
+        Sum = xor(Cin, s);
+        p = and(A, B);
+        q = and(B, Cin);
+        r = and(Cin, A);
+        t = or(p, q);
+        Carry = or(r, t);
+
+        /* SUM */
+        if(Sum == 0)
+        {
+            GPIO_WriteBit(GPIOC, GPIO_Pin_4, SET);
+        }
+        else
+        {
+            GPIO_WriteBit(GPIOC, GPIO_Pin_4, RESET);
+        }
+
+        /* CARRY */
+        if(Carry == 0)
+        {
+            GPIO_WriteBit(GPIOC, GPIO_Pin_5, SET);
+        }
+        else
+        {
+            GPIO_WriteBit(GPIOC, GPIO_Pin_5, RESET);
+        }
+    }
+}
+
+
+   ```
+
+## Demonstration Vedio
+https://drive.google.com/file/d/1_lYlIaUTtjNy1c9X6w4urD6A8rkqNnxj/view?usp=sharing
+
+## Applications
+**Arithmetic Operations:** Full adders are used to construct multi-bit binary adders, such as ripple-carry adders and carry-lookahead adders, which perform arithmetic operations like addition and subtraction in CPUs and ALUs (Arithmetic Logic Units).
+
+**Multiplication:** In digital multipliers, full adders are employed to sum partial products, facilitating binary multiplication in processors and digital signal processors (DSPs).
+
+**Digital Counters:** Full adders are used in the design of binary counters, which count in binary sequences and are fundamental components in timing and control circuits.
+
+**ALUs (Arithmetic Logic Units):** ALUs, which are part of the CPU, utilize full adders to perform arithmetic and logical operations. They are crucial for executing instructions in microprocessors and microcontrollers.
+
+**Digital Signal Processing:** Full adders are used in DSP algorithms for various signal processing tasks, such as filtering, modulation, and encoding.
+
+**FPGA and ASIC Design:** Full adders are used in custom hardware design, such as Field-Programmable Gate Arrays (FPGAs) and Application-Specific Integrated Circuits (ASICs), where custom arithmetic logic is implemented for specific applications.
+
+**Error Detection and Correction:** Full adders are utilized in the design of circuits for error detection and correction, such as Hamming code generators and parity checkers, to ensure data integrity in communication systems.
+
+**Memory Address Calculation:** Full adders are used in memory address calculation circuits for accessing and managing memory locations in computer systems.
+
+**Control Systems:** Full adders play a role in control systems for robotics, automation, and embedded systems, where precise arithmetic computations are required.
+
+</details>
+
+----------------------------------------------------------------------------------------------------------------
+<details>
+<summary><b> CONCLUSION: </b>In this internship led by Kunal Ghosh Sir, I gained hands-on experience with RISC-V architecture and VLSI chip design using open-source tools. The tasks ranged from compiling C code, simulating RISC-V programs, and understanding RISC-V instructions to performing functional simulations and understanding and implementation using VSDSquadron Mini RISC-V Board.
+</summary>
