@@ -707,7 +707,7 @@ The AND operations find the cases where any two of the input bits are '1', and t
 ## Project Implementation
 **Hardware Setup:** Connect three input push buttons to the GPIO pins of the VSDSquadron Mini for binary data input. Connect two LEDs to display the sum and carry-out outputs1.
 
-**Software Development:** Write the code to implement the full adder logic using digital gates (AND, OR, XOR) in the PlatformIO IDE. Configure the GPIO pins for input and output operations1.
+**Software Development:** Write the code to implement the full adder logic using digital gates (AND, OR, XOR) in the PlatformIO IDE. Configure the GPIO pins for input and output operations.
 
 **Testing and Verification:** Use a truth table to verify the correct operation of the full adder circuit. The truth table for a full adder is as follows:
 <table>
