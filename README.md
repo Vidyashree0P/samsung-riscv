@@ -817,7 +817,8 @@ int main()
    ```
 
 ## Demonstration Vedio
-https://drive.google.com/file/d/1_lYlIaUTtjNy1c9X6w4urD6A8rkqNnxj/view?usp=sharing
+[https://drive.google.com/file/d/1_lYlIaUTtjNy1c9X6w4urD6A8rkqNnxj/view?usp=sharing](https://drive.google.com/uc?id=1YoKYuwS8Y0-aJuFBZaeMQHQL1sCFXXal&export=download)
+
 
 ## Applications
 **Arithmetic Operations:** Full adders are used to construct multi-bit binary adders, such as ripple-carry adders and carry-lookahead adders, which perform arithmetic operations like addition and subtraction in CPUs and ALUs (Arithmetic Logic Units).
